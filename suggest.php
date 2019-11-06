@@ -14,6 +14,11 @@ if($_SERVER["REQUEST_METHOD"]== "POST"){
       //Stop further processing if blank. 
       exit;
    }
+
+   if($_POST["address"] != ""){
+      echo "Bad form  input";
+      exit;
+   }
   
    //Add name and email to email body
    $email_body = "";
@@ -56,6 +61,13 @@ include("inc/header.php");
              <tr> 
                 <th><label for="details">Suggest Item Details</label></th>
                 <td><textarea type="text" id="details" name="details"></textarea></td>
+             </tr>
+             <!--Honey Pot Field-->
+             <!--Hide using CSS--> 
+             <tr style="display:none"> 
+                <th><label for="address"><Address></Address></label></th>
+                <td><input type="text" id="address" name="address"/>
+                <p>Please leave this field blank</p></td>
              </tr>
            </table>
                 <input type="submit" value="Send" />
