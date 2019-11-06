@@ -25,7 +25,15 @@ if($_SERVER["REQUEST_METHOD"]== "POST"){
       echo "Bad form  input";
       exit;
    }
-  
+   //Add static PHPMailer validation call to check email valid
+   //If valid/invalid returns true/false
+   //Use condtional to check return value of method
+   if(!PHPMailer::validateAddress($email)){
+      echo "Invalide Email Address";
+      exit;
+   }
+   
+
    //Add name and email to email body
    $email_body = "";
    $email_body .= "Name " . $name . "\n"; 
