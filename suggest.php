@@ -3,10 +3,10 @@
 if($_SERVER["REQUEST_METHOD"]== "POST"){
 
    //Trim white space to ensure not empty, filter_input code/tags
-   $name = trim(filter_input(INPUT_POST,"name", FILTER_SATANIZE_STRING));
-   $email = trim(filter_input(INPUT_POST,"email", FILTER_SATANIZE_EMAIL));
+   $name = trim(filter_input(INPUT_POST,"name",FILTER_SANITIZE_STRING));
+   $email = trim(filter_input(INPUT_POST,"email",FILTER_SANITIZE_EMAIL));
    //Concert html to special chars
-   $details = trim(filter_input(INPUT_POST,"details", FILTER_SATANIZE_SPECIAL_CHARS)); 
+   $details = trim(filter_input(INPUT_POST,"details",FILTER_SANITIZE_SPECIAL_CHARS)); 
 
    //Check value from $_POST array is not blank
    If($name == "" || $email == "" || $details ==""){
