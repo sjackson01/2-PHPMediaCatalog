@@ -40,6 +40,25 @@ if($_SERVER["REQUEST_METHOD"]== "POST"){
    $email_body .= "Email " . $email . "\n";
    $email_body .= "Details " . $details . "\n";
 
+   //Send email
+   $mail = new PHPMailer;
+   $mail->isSMTP();
+   $mail->Host = 'localhost';
+   $mail->Port = 25;
+   $mail->CharSet = PHPMailer::CHARSET_UTF8;
+   //It's important not to use the submitter's address as the from address as it's forgery,
+   //which will cause your messages to fail SPF checks.
+   //Use an address in your own domain as the from address, put the submitter's address in a reply-to
+   $mail->setFrom('contact@example.com', (empty($name) ? 'Contact form' : $name));
+   $mail->addAddress($to);
+   $mail->addReplyTo($email, $name);
+   $mail->Subject = 'Contact form: ' . $subject;
+   $mail->Body = "Contact form submission\n\n" . $query;
+   if (!$mail->send()) {
+       $msg .= 'Mailer Error: '. $mail->ErrorInfo;
+   } else {
+       $msg .= 'Message sent!';
+   }
    //Add "thanks" to $_GET status
    header("location:suggest.php?status=thanks");
 
