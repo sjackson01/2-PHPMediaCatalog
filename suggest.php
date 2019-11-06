@@ -42,22 +42,25 @@ if($_SERVER["REQUEST_METHOD"]== "POST"){
 
    //Send email
    $mail = new PHPMailer;
-   $mail->isSMTP();
-   $mail->Host = 'localhost';
-   $mail->Port = 25;
    $mail->CharSet = PHPMailer::CHARSET_UTF8;
    //It's important not to use the submitter's address as the from address as it's forgery,
    //which will cause your messages to fail SPF checks.
    //Use an address in your own domain as the from address, put the submitter's address in a reply-to
-   $mail->setFrom('contact@example.com', (empty($name) ? 'Contact form' : $name));
-   $mail->addAddress($to);
+   //Set from email address and name set to user name input from form
+   $mail->setFrom('stevenpjackson01@gmail.com', $name);
+   //Replyto form input email and form input name this is a method()
    $mail->addReplyTo($email, $name);
-   $mail->Subject = 'Contact form: ' . $subject;
-   $mail->Body = "Contact form submission\n\n" . $query;
+   //Add a recipient manditory but name optional this is a method()
+   $mail->addAddress('stevenpjackson01@gmail.com', 'Steven Jackson');
+   //Add a subject/user input name to email sent from mailer object this is a property=
+   $mail->Subject = 'Library suggestion from ' . $name; 
+   //Add form input textarea to email body 
+   $mail->Body = $email_body;
+   //Call object send method to send the email 
    if (!$mail->send()) {
-       $msg .= 'Mailer Error: '. $mail->ErrorInfo;
-   } else {
-       $msg .= 'Message sent!';
+      //Display error message
+       echo "Mailer Error: ". $mail->ErrorInfo;//Display particular error message within property
+       exit; 
    }
    //Add "thanks" to $_GET status
    header("location:suggest.php?status=thanks");
