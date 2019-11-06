@@ -3,16 +3,6 @@
 $name = $_POST["name"];
 $email = $_POST["email"];
 $details = $_POST["details"]; 
-
-//Add name and email to email body
-echo "<pre>";
-$email_body = "";
-$email_body .= "Name " . $name . "\n"; 
-$email_body .= "Email " . $email . "\n";
-$email_body .= "Details " . $details . "\n";
-echo $email_body;
-echo "</pre>"
-
 /*
 $_POST output 
 array(3) { 
@@ -20,4 +10,24 @@ array(3) {
     ["email"]=> string(15) "email@email.com" 
     ["suggest"]=> string(15) "Some suggestion" }
 */
+//Add name and email to email body
+echo "<pre>";
+$email_body = "";
+$email_body .= "Name " . $name . "\n"; 
+$email_body .= "Email " . $email . "\n";
+$email_body .= "Details " . $details . "\n";
+echo $email_body;
+echo "</pre>";
+
+//To Do: Send email
+$pageTitle = "Thank You";
+$section = null;
+include("inc/header.php");
 ?>
+
+<div class="section page"
+    <h1> Thank you </h1>
+    <p> Thanks for the email! I&rsquo;ll check out your suggestion shortly!</p>
+</div>
+
+<?php include("footer.php"); ?>
