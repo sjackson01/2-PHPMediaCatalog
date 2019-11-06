@@ -21,8 +21,8 @@ include("inc/header.php"); ?>
                 <td><input type="text" id="email" name="email"/></td>
              </tr>
              <tr> 
-                <th><label for="suggest">Suggest Item Details</label></th>
-                <td><textarea type="text" id="suggest" name="suggest"></textarea></td>
+                <th><label for="details">Suggest Item Details</label></th>
+                <td><textarea type="text" id="details" name="details"></textarea></td>
              </tr>
            </table>
                 <input type="submit" value="Send" />
