@@ -18,7 +18,8 @@ if($_SERVER["REQUEST_METHOD"]== "POST"){
    $email_body .= "Email " . $email . "\n";
    $email_body .= "Details " . $details . "\n";
 
-   header("location:thanks.php");
+   //Add "thanks" to $_GET status
+   header("location:suggest.php?status=thanks");
 
 }
 $pageTitle = "Suggest a Media Item";
@@ -31,6 +32,11 @@ include("inc/header.php");
 <div class="section page">
     <div class="wrapper">
         <h1>Suggest a Media Item</h1>
+        <!-- Display "Thank You" message if header redirect is completed and $_GET status is thanks -->
+        <?php 
+        if(isset($_GET["status"]) && $_GET["status"] == "thanks"){
+           echo "<p>Thanks for the email! I&rsquo;ll check out your suggestion shortly!</p>";
+        }else{ ?>
         <p>If you think there is something I&rsquo;m missing, 
            let me know! Complete the form to send me an e-mail. </p>
            <!--Add form-->
@@ -50,7 +56,8 @@ include("inc/header.php");
              </tr>
            </table>
                 <input type="submit" value="Send" />
-           </form>
+           </form>  
+        <?php } ?> 
     </div>
 </div>
 
