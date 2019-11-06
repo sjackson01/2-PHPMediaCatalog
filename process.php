@@ -5,10 +5,11 @@ $email = $_POST["email"];
 $details = $_POST["details"]; 
 
 //Display each value
-echo $name;
-echo $email;
-echo $details;
-
+echo "<pre>";
+echo "Name " . $name . "\n"; 
+echo "Email " . $email . "\n";
+echo "Details " . $details . "\n";
+echo "</pre>"
 /*
 $_POST output 
 array(3) { 
