@@ -30,4 +30,4 @@ include("inc/header.php");
     <p> Thanks for the email! I&rsquo;ll check out your suggestion shortly!</p>
 </div>
 
-<?php include("footer.php"); ?>
+<?php include("inc/footer.php"); ?>
