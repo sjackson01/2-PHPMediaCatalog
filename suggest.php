@@ -2,10 +2,11 @@
 //Check $_SERVER array for defined request method 
 if($_SERVER["REQUEST_METHOD"]== "POST"){
 
-   //Trim white space to ensure not empty
-   $name = trim($_POST["name"]);
-   $email = trim($_POST["email"]);
-   $details = trim($_POST["details"]); 
+   //Trim white space to ensure not empty, filter_input code/tags
+   $name = trim(filter_input(INPUT_POST,"name", FILTER_SATANIZE_STRING));
+   $email = trim(filter_input(INPUT_POST,"email", FILTER_SATANIZE_EMAIL));
+   //Concert html to special chars
+   $details = trim(filter_input(INPUT_POST,"name", FILTER_SATANIZE_SPECIAL_CHARS)); 
 
    //Check value from $_POST array is not blank
    If($name == "" || $email == "" || $details ==""){
