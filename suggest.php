@@ -6,7 +6,7 @@ if($_SERVER["REQUEST_METHOD"]== "POST"){
    $name = trim(filter_input(INPUT_POST,"name", FILTER_SATANIZE_STRING));
    $email = trim(filter_input(INPUT_POST,"email", FILTER_SATANIZE_EMAIL));
    //Concert html to special chars
-   $details = trim(filter_input(INPUT_POST,"name", FILTER_SATANIZE_SPECIAL_CHARS)); 
+   $details = trim(filter_input(INPUT_POST,"details", FILTER_SATANIZE_SPECIAL_CHARS)); 
 
    //Check value from $_POST array is not blank
    If($name == "" || $email == "" || $details ==""){
@@ -15,6 +15,7 @@ if($_SERVER["REQUEST_METHOD"]== "POST"){
       exit;
    }
 
+   //Honey Pot conditional to catch bot spams
    if($_POST["address"] != ""){
       echo "Bad form  input";
       exit;
