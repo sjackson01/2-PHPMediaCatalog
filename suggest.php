@@ -2,16 +2,18 @@
 //Check $_SERVER array for defined request method 
 if($_SERVER["REQUEST_METHOD"]== "POST"){
 
-   $name = $_POST["name"];
-   $email = $_POST["email"];
-   $details = $_POST["details"]; 
-   /*
-   $_POST output 
-   array(3) { 
-      ["name"]=> string(14) "Steven Jackson" 
-      ["email"]=> string(15) "email@email.com" 
-      ["suggest"]=> string(15) "Some suggestion" }
-   */
+   //Trim white space to ensure not empty
+   $name = trim($_POST["name"]);
+   $email = trim($_POST["email"]);
+   $details = trim($_POST["details"]); 
+
+   //Check value from $_POST array is not blank
+   If($name == "" || $email == "" || $details ==""){
+      echo "Please fill in the required feilds: Name, Email and Details";
+      //Stop further processing if blank. 
+      exit;
+   }
+  
    //Add name and email to email body
    $email_body = "";
    $email_body .= "Name " . $name . "\n"; 
