@@ -42,16 +42,40 @@ if($_SERVER["REQUEST_METHOD"]== "POST"){
 
    //Send email
    $mail = new PHPMailer;
+   //Tell PHPMailer to use SMTP
+   $mail->isSMTP();
+   //Enable SMTP debugging
+   // SMTP::DEBUG_OFF = off (for production use)
+   // SMTP::DEBUG_CLIENT = client messages
+   // SMTP::DEBUG_SERVER = client and server messages
+   $mail->SMTPDebug = SMTP::DEBUG_SERVER;
+   //Set the hostname of the mail server
+   $mail->Host = 'smtp.gmail.com';
+   // use
+   // $mail->Host = gethostbyname('smtp.gmail.com');
+   // if your network does not support SMTP over IPv6
+   //Set the SMTP port number - 587 for authenticated TLS, a.k.a. RFC4409 SMTP submission
+   $mail->Port = 587;
+   //Set the encryption mechanism to use - STARTTLS or SMTPS
+   $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+   //Whether to use SMTP authentication
+   $mail->SMTPAuth = true;
+   //Username to use for SMTP authentication - use full email address for gmail
+   $mail->Username = 'stevenpjackson0@gmail.com';
+   //Password to use for SMTP authentication
+   $mail->Password = 'dlxnppnpljeftjdz';
+
+   //PHP Mailer native(Not recommended)
    $mail->CharSet = PHPMailer::CHARSET_UTF8;
    //It's important not to use the submitter's address as the from address as it's forgery,
    //which will cause your messages to fail SPF checks.
    //Use an address in your own domain as the from address, put the submitter's address in a reply-to
    //Set from email address and name set to user name input from form
-   $mail->setFrom('stevenpjackson01@gmail.com', $name);
+   $mail->setFrom('stevenpjackson0@gmail.com', $name);
    //Replyto form input email and form input name this is a method()
    $mail->addReplyTo($email, $name);
    //Add a recipient manditory but name optional this is a method()
-   $mail->addAddress('stevenpjackson01@gmail.com', 'Steven Jackson');
+   $mail->addAddress('stevenpjackson0@gmail.com', 'Steven Jackson');
    //Add a subject/user input name to email sent from mailer object this is a property=
    $mail->Subject = 'Library suggestion from ' . $name; 
    //Add form input textarea to email body 
