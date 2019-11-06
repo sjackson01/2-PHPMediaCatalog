@@ -4,12 +4,15 @@ $name = $_POST["name"];
 $email = $_POST["email"];
 $details = $_POST["details"]; 
 
-//Display each value
+//Add name and email to email body
 echo "<pre>";
-echo "Name " . $name . "\n"; 
-echo "Email " . $email . "\n";
-echo "Details " . $details . "\n";
+$email_body = "";
+$email_body .= "Name " . $name . "\n"; 
+$email_body .= "Email " . $email . "\n";
+$email_body .= "Details " . $details . "\n";
+echo $email_body;
 echo "</pre>"
+
 /*
 $_POST output 
 array(3) { 
