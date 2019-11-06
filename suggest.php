@@ -10,7 +10,7 @@ include("inc/header.php"); ?>
         <p>If you think there is something I&rsquo;m missing, 
            let me know! Complete the form to send me an e-mail. </p>
            <!--Add form-->
-           <form method="post">
+           <form method="post" action="process.php">
            <table>
              <tr> 
                 <th><label for="name">Name</label></th>
@@ -21,12 +21,8 @@ include("inc/header.php"); ?>
                 <td><input type="text" id="email" name="email"/></td>
              </tr>
              <tr> 
-                <th><label for="email">Suggest Item Details</label></th>
-                <td><textarea type="text" id="email" name="email"></textarea></td>
-             </tr>
-             <tr> 
-                <th><label for="email">Suggest Item Details</label></th>
-                <td><textarea type="text" id="email" name="email"></textarea></td>
+                <th><label for="suggest">Suggest Item Details</label></th>
+                <td><textarea type="text" id="suggest" name="suggest"></textarea></td>
              </tr>
            </table>
                 <input type="submit" value="Send" />
