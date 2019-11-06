@@ -3,6 +3,8 @@
 use PHPMailer\PHPMailer\PHPMailer;
 require 'vendor/phpmailer/src/PHPMailer.php';
 require 'vendor/phpmailer/src/Exception.php';
+//Require SMTP
+require 'vendor/phpmailer/src/SMTP.php';
 
 //Check $_SERVER array for defined request method 
 if($_SERVER["REQUEST_METHOD"]== "POST"){
