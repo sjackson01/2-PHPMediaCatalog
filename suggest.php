@@ -1,4 +1,9 @@
 <?php 
+//Import the PHPMailer class into the global namespace
+use PHPMailer\PHPMailer\PHPMailer;
+require 'vendor/phpmailer/src/PHPMailer.php';
+require 'vendor/phpmailer/src/Exception.php';
+
 //Check $_SERVER array for defined request method 
 if($_SERVER["REQUEST_METHOD"]== "POST"){
 
