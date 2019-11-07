@@ -163,6 +163,80 @@ include("inc/header.php");
                   </select>
                 </td>
              </tr>
+             <tr>
+                <th>
+                    <label for="genre">Genre</label>
+                </th>
+                <td>
+                    <select name="genre" id="genre">
+                        <option value="">Select One</option>
+                        <optgroup label="Books">
+                            <option value="Action">Action</option>
+                            <option value="Adventure">Adventure</option>
+                            <option value="Comedy">Comedy</option>
+                            <option value="Fantasy">Fantasy</option>
+                            <option value="Historical">Historical</option>
+                            <option value="Historical Fiction">Historical Fiction</option>
+                            <option value="Horror">Horror</option>
+                            <option value="Magical Realism">Magical Realism</option>
+                            <option value="Mystery">Mystery</option>
+                            <option value="Paranoid">Paranoid</option>
+                            <option value="Philosophical">Philosophical</option>
+                            <option value="Political">Political</option>
+                            <option value="Romance">Romance</option>
+                            <option value="Saga">Saga</option>
+                            <option value="Satire">Satire</option>
+                            <option value="Sci-Fi">Sci-Fi</option>
+                            <option value="Tech">Tech</option>
+                            <option value="Thriller">Thriller</option>
+                            <option value="Urban">Urban</option>
+                        </optgroup>
+                        <optgroup label="Movies">
+                            <option value="Action">Action</option>
+                            <option value="Adventure">Adventure</option>
+                            <option value="Animation">Animation</option>
+                            <option value="Biography">Biography</option>
+                            <option value="Comedy">Comedy</option>
+                            <option value="Crime">Crime</option>
+                            <option value="Documentary">Documentary</option>
+                            <option value="Drama">Drama</option>
+                            <option value="Family">Family</option>
+                            <option value="Fantasy">Fantasy</option>
+                            <option value="Film-Noir">Film-Noir</option>
+                            <option value="History">History</option>
+                            <option value="Horror">Horror</option>
+                            <option value="Musical">Musical</option>
+                            <option value="Mystery">Mystery</option>
+                            <option value="Romance">Romance</option>
+                            <option value="Sci-Fi">Sci-Fi</option>
+                            <option value="Sport">Sport</option>
+                            <option value="Thriller">Thriller</option>
+                            <option value="War">War</option>
+                            <option value="Western">Western</option>
+                        </optgroup>
+                        <optgroup label="Music">
+                            <option value="Alternative">Alternative</option>
+                            <option value="Blues">Blues</option>
+                            <option value="Classical">Classical</option>
+                            <option value="Country">Country</option>
+                            <option value="Dance">Dance</option>
+                            <option value="Easy Listening">Easy Listening</option>
+                            <option value="Electronic">Electronic</option>
+                            <option value="Folk">Folk</option>
+                            <option value="Hip Hop/Rap">Hip Hop/Rap</option>
+                            <option value="Inspirational/Gospel">Insirational/Gospel</option>
+                            <option value="Jazz">Jazz</option>
+                            <option value="Latin">Latin</option>
+                            <option value="New Age">New Age</option>
+                            <option value="Opera">Opera</option>
+                            <option value="Pop">Pop</option>
+                            <option value="R&B/Soul">R&amp;B/Soul</option>
+                            <option value="Reggae">Reggae</option>
+                            <option value="Rock">Rock</option>
+                        </optgroup>
+                    </select>
+                </td>
+            </tr>
              <tr> 
                 <th><label for="details">Suggest Item Details</label></th>
                 <td><textarea type="text" id="details" name="details"></textarea></td>
