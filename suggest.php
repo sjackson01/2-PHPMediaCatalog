@@ -8,13 +8,16 @@ require 'vendor/phpmailer/src/SMTP.php';
 
 //Check $_SERVER array for defined request method 
 if($_SERVER["REQUEST_METHOD"]== "POST"){
-
-   //Trim white space to ensure not empty, filter_input code/tags
+   //Trim white space to ensure not empty, filter_input from form "$_POST" 
+   //Arg 1 "input_type" arg 2 "variable name" arg 3 "Filter_Instructions 
    $name = trim(filter_input(INPUT_POST,"name",FILTER_SANITIZE_STRING));
    $email = trim(filter_input(INPUT_POST,"email",FILTER_SANITIZE_EMAIL));
-   //Concert html to special chars
-   $details = trim(filter_input(INPUT_POST,"details",FILTER_SANITIZE_SPECIAL_CHARS)); 
-
+   $category = trim(filter_input(INPUT_POST,"category",FILTER_SANITIZE_STRING));
+   $title = trim(filter_input(INPUT_POST,"title",FILTER_SANITIZE_STRING));
+   $format = trim(filter_input(INPUT_POST,"format",FILTER_SANITIZE_STRING));
+   $genre = trim(filter_input(INPUT_POST,"genre",FILTER_SANITIZE_STRING));
+   $year = trim(filter_input(INPUT_POST,"year",FILTER_SANITIZE_NUMBER_INT));
+   $details = trim(filter_input(INPUT_POST,"details",FILTER_SANITIZE_SPECIAL_CHARS));
    //Check value from $_POST array is not blank
    If($name == "" || $email == "" || $details ==""){
       echo "Please fill in the required feilds: Name, Email and Details";
@@ -113,16 +116,16 @@ include("inc/header.php");
            <form method="post" action="suggest.php">
            <table>
              <tr> 
-                <th><label for="name">Name (Required)</label></th>
+                <th><label for="name">Name (required)</label></th>
                 <td><input type="text" id="name" name="name"/></td>
              </tr>
              <tr> 
-                <th><label for="email">EMail (Required)</label></th>
+                <th><label for="email">EMail (required)</label></th>
                 <td><input type="text" id="email" name="email"/></td>
              </tr>
              <!--Create drop down menu--> 
              <tr> 
-                <th><label for="category">Category (Required)</label></th>
+                <th><label for="category">Category (required)</label></th>
                 <td>
                   <select id="category" name="category"/>
                      <option value="">Select One</option> 
@@ -133,7 +136,7 @@ include("inc/header.php");
                 </td>
              </tr>
              <tr> 
-                <th><label for="title">Title (Required)</label></th>
+                <th><label for="title">Title (required)</label></th>
                 <td><input type="title" id="title" name="title"/></td>
              </tr>
              <!-- Create format option list --> 
