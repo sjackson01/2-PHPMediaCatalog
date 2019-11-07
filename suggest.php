@@ -18,7 +18,7 @@ if($_SERVER["REQUEST_METHOD"]== "POST"){
    $genre = trim(filter_input(INPUT_POST,"genre",FILTER_SANITIZE_STRING));
    $year = trim(filter_input(INPUT_POST,"year",FILTER_SANITIZE_NUMBER_INT));
    $details = trim(filter_input(INPUT_POST,"details",FILTER_SANITIZE_SPECIAL_CHARS));
-   //Check value from $_POST array is not blank
+   //Check value from $_POST array is not blank(Making these fields required)
    If($name == "" || $email == "" || $category =="" || $title ==""){
       echo "Please fill in the required feilds: Name, Email, Category and Title.";
       //Stop further processing if blank. 
