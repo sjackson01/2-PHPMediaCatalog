@@ -26,14 +26,16 @@ if($_SERVER["REQUEST_METHOD"]== "POST"){
    }
 
    //Honey Pot conditional to catch bot spams
-   if($_POST["address"] != ""){
-      $error_message = "Bad form  input";
+   //If we have not already encounted error message and the address field is not blank
+   if(!isset($error_message) && $_POST["address"] != ""){
+      $error_message = "Bad form input";
    }
 
    //Add static PHPMailer validation call to check email valid
    //If valid/invalid returns true/false
    //Use condtional to check return value of method
-   if(!PHPMailer::validateAddress($email)){
+   //Only want to send error message if there isnt one already and if the mail address is invalid
+   if(!isset($error_message) && !PHPMailer::validateAddress($email)){
       $error_message = "Invalide Email Address";
    }
 
