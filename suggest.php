@@ -145,9 +145,10 @@ include("inc/header.php");
                 <td>
                   <select id="category" name="category"/>
                      <option value="">Select One</option> 
-                     <option value="Book">Books</option>
-                     <option value="Movie">Movies</option>
-                     <option value ="Music">Music</option>
+                     <!--PHP echo will only exist if the post variable $category is set and $category == optoin value-->
+                     <option value="Books"<?php if(isset($category) && $category == "Books"){echo "/*Must have one space before selected*/ selected";}?>>Books</option>
+                     <option value="Movies"<?php if(isset($category) && $category == "Movies"){echo "/*Must have one space before selected*/ selected";}?>>Movies</option>
+                     <option value ="Music"<?php if(isset($category) && $category == "Music"){echo "/*Must have one space before selected*/ selected";}?>>Music</option>
                   </select>
                 </td>
              </tr>
