@@ -116,11 +116,15 @@ include("inc/header.php");
         <?php 
         if(isset($_GET["status"]) && $_GET["status"] == "thanks"){
            echo "<p>Thanks for the email! I&rsquo;ll check out your suggestion shortly!</p>";
-        }else {
-         //Display error message 
-         if(isset($error_message)){
-         echo '<p class="message">' . $error_message . '</p>';
-        }?>
+         }else {
+            //Display error message 
+            if(isset($error_message)){
+            echo '<p class="message">' . $error_message . '</p>';
+         }else{
+            echo "<p>If you think there is something I&rsquo;m missing, 
+            let me know! Complete the form to send me an e-mail. </p>";
+         }
+         ?>
         <p>If you think there is something I&rsquo;m missing, 
            let me know! Complete the form to send me an e-mail. </p>
            <!--Add form-->
