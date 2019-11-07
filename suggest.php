@@ -244,7 +244,7 @@ include("inc/header.php");
                 <td><input type="year" id="year" name="year"/></td>
              </tr>
              <tr> 
-                <th><label for="details">Suggest Item Details</label></th>
+                <th><label for="details">Additional Details</label></th>
                 <td><textarea type="text" id="details" name="details"></textarea></td>
              </tr>
              <!--Honey Pot Field-->
