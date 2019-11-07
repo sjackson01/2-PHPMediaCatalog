@@ -479,7 +479,9 @@ include("inc/header.php");
              <tr> 
                 <th><label for="details">Additional Details</label></th>
                 <!--PHP echo will only exist if the post variable $details is set--> 
-                <td><textarea type="text" id="details" name="details"><?php if(isset($details)){echo $details;} ?></textarea></td>
+                <!-- !Example!htmlspecialchars escapes any code (html etc) that may be placed into our textarea to ill effect -->
+                <!-- All other values from post are filtered and sanatized upon arrival from $_POST array --> 
+                <td><textarea type="text" id="details" name="details"><?php if(isset($details)){ echo htmlspecialchars($_POST['details']);} ?></textarea></td>
              </tr>
              <!--Honey Pot Field-->
              <!--Hide using CSS--> 
