@@ -18,89 +18,90 @@ if($_SERVER["REQUEST_METHOD"]== "POST"){
    $genre = trim(filter_input(INPUT_POST,"genre",FILTER_SANITIZE_STRING));
    $year = trim(filter_input(INPUT_POST,"year",FILTER_SANITIZE_NUMBER_INT));
    $details = trim(filter_input(INPUT_POST,"details",FILTER_SANITIZE_SPECIAL_CHARS));
+   
    //Check value from $_POST array is not blank(Making these fields required)
    If($name == "" || $email == "" || $category =="" || $title ==""){
-      echo "Please fill in the required feilds: Name, Email, Category and Title.";
-      //Stop further processing if blank. 
-      exit;
+      $error_message = "Please fill in the required feilds: Name, Email, Category and Title.";
+   
    }
 
    //Honey Pot conditional to catch bot spams
    if($_POST["address"] != ""){
-      echo "Bad form  input";
-      exit;
+      $error_message = "Bad form  input";
    }
+
    //Add static PHPMailer validation call to check email valid
    //If valid/invalid returns true/false
    //Use condtional to check return value of method
    if(!PHPMailer::validateAddress($email)){
-      echo "Invalide Email Address";
-      exit;
+      $error_message = "Invalide Email Address";
    }
-   
 
-   //Add name and email to email body
-   $email_body = "";
-   $email_body .= "Name " . $name . "\n"; 
-   $email_body .= "Email " . $email . "\n";
-   //Add email header
-   $email_body .= "\n\n Suggest item \n\n";
-   $email_body .= "Category " . $category . "\n";
-   $email_body .= "Title " . $title . "\n";
-   $email_body .= "Genre " . $genre . "\n";
-   $email_body .= "Year " . $year . "\n";
-   $email_body .= "Details " . $details . "\n";
+   //If error message is not set send email 
+   if(!isset($error_message)){
+      //Add name and email to email body
+      $email_body = "";
+      $email_body .= "Name " . $name . "\n"; 
+      $email_body .= "Email " . $email . "\n";
+      //Add email header
+      $email_body .= "\n\n Suggest item \n\n";
+      $email_body .= "Category " . $category . "\n";
+      $email_body .= "Title " . $title . "\n";
+      $email_body .= "Genre " . $genre . "\n";
+      $email_body .= "Year " . $year . "\n";
+      $email_body .= "Details " . $details . "\n";
 
 
-   //Send email
-   $mail = new PHPMailer;
-   //Tell PHPMailer to use SMTP
-   $mail->isSMTP();
-   //Enable SMTP debugging
-   // SMTP::DEBUG_OFF = off (for production use)
-   // SMTP::DEBUG_CLIENT = client messages
-   // SMTP::DEBUG_SERVER = client and server messages
-   $mail->SMTPDebug = off;
-   //Set the hostname of the mail server
-   $mail->Host = 'smtp.gmail.com';
-   // use
-   // $mail->Host = gethostbyname('smtp.gmail.com');
-   // if your network does not support SMTP over IPv6
-   //Set the SMTP port number - 587 for authenticated TLS, a.k.a. RFC4409 SMTP submission
-   $mail->Port = 587;
-   //Set the encryption mechanism to use - STARTTLS or SMTPS
-   $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-   //Whether to use SMTP authentication
-   $mail->SMTPAuth = true;
-   //Username to use for SMTP authentication - use full email address for gmail
-   $mail->Username = 'stevenpjackson0@gmail.com';
-   //Password to use for SMTP authentication
-   $mail->Password = 'dlxnppnpljeftjdz';
+      //Send email
+      $mail = new PHPMailer;
+      //Tell PHPMailer to use SMTP
+      $mail->isSMTP();
+      //Enable SMTP debugging
+      // SMTP::DEBUG_OFF = off (for production use)
+      // SMTP::DEBUG_CLIENT = client messages
+      // SMTP::DEBUG_SERVER = client and server messages
+      $mail->SMTPDebug = off;
+      //Set the hostname of the mail server
+      $mail->Host = 'smtp.gmail.com';
+      // use
+      // $mail->Host = gethostbyname('smtp.gmail.com');
+      // if your network does not support SMTP over IPv6
+      //Set the SMTP port number - 587 for authenticated TLS, a.k.a. RFC4409 SMTP submission
+      $mail->Port = 587;
+      //Set the encryption mechanism to use - STARTTLS or SMTPS
+      $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+      //Whether to use SMTP authentication
+      $mail->SMTPAuth = true;
+      //Username to use for SMTP authentication - use full email address for gmail
+      $mail->Username = 'stevenpjackson0@gmail.com';
+      //Password to use for SMTP authentication
+      $mail->Password = 'dlxnppnpljeftjdz';
 
-   //PHP Mailer native(Not recommended)
-   $mail->CharSet = PHPMailer::CHARSET_UTF8;
-   //It's important not to use the submitter's address as the from address as it's forgery,
-   //which will cause your messages to fail SPF checks.
-   //Use an address in your own domain as the from address, put the submitter's address in a reply-to
-   //Set from email address and name set to user name input from form
-   $mail->setFrom('stevenpjackson0@gmail.com', $name);
-   //Replyto form input email and form input name this is a method()
-   $mail->addReplyTo($email, $name);
-   //Add a recipient manditory but name optional this is a method()
-   $mail->addAddress('stevenpjackson0@gmail.com', 'Steven Jackson');
-   //Add a subject/user input name to email sent from mailer object this is a property=
-   $mail->Subject = 'Library suggestion from ' . $name; 
-   //Add form input textarea to email body 
-   $mail->Body = $email_body;
-   //Call object send method to send the email 
-   if (!$mail->send()) {
-      //Display error message
-       echo "Mailer Error: ". $mail->ErrorInfo;//Display particular error message within property
-       exit; 
+      //PHP Mailer native(Not recommended)
+      $mail->CharSet = PHPMailer::CHARSET_UTF8;
+      //It's important not to use the submitter's address as the from address as it's forgery,
+      //which will cause your messages to fail SPF checks.
+      //Use an address in your own domain as the from address, put the submitter's address in a reply-to
+      //Set from email address and name set to user name input from form
+      $mail->setFrom('stevenpjackson0@gmail.com', $name);
+      //Replyto form input email and form input name this is a method()
+      $mail->addReplyTo($email, $name);
+      //Add a recipient manditory but name optional this is a method()
+      $mail->addAddress('stevenpjackson0@gmail.com', 'Steven Jackson');
+      //Add a subject/user input name to email sent from mailer object this is a property=
+      $mail->Subject = 'Library suggestion from ' . $name; 
+      //Add form input textarea to email body 
+      $mail->Body = $email_body;
+      //If Call to send method is successful ridirect to thank you message
+      if ($mail->send()) {
+         //Add "thanks" to $_GET status
+         header("location:suggest.php?status=thanks");
+         exit;
+      }else{ //Possibly unecessary
+         //Display error message
+         $error_message = "Mailer Error: ". $mail->ErrorInfo;//Display particular error message within property
+      }
    }
-   //Add "thanks" to $_GET status
-   header("location:suggest.php?status=thanks");
-
 }
 $pageTitle = "Suggest a Media Item";
 $section = "suggest";
