@@ -126,8 +126,8 @@ include("inc/header.php");
                 <td>
                   <select id="category" name="category"/>
                      <option value="">Select One</option> 
-                     <option value="Books">Books</option>
-                     <option value="Movies">Movies</option>
+                     <option value="Book">Books</option>
+                     <option value="Movie">Movies</option>
                      <option value ="Music">Music</option>
                   </select>
                 </td>
@@ -136,14 +136,30 @@ include("inc/header.php");
                 <th><label for="title">EMail</label></th>
                 <td><input type="title" id="title" name="title"/></td>
              </tr>
+             <!-- Create format option list --> 
              <tr> 
-                <th><label for="format">EMail</label></th>
+                <th><label for="format">Format</label></th>
                 <td>
                   <select id="format" name="format"/>
                      <option value="">Select One</option> 
-                     <option value="Books">Books</option>
-                     <option value="Movies">Movies</option>
-                     <option value ="Music">Music</option>
+                        <optgroup value="Book">
+                           <option value="Audio">Audio</option>
+                           <option value="Ebook">Ebook</option>
+                           <option value="Hardback">Hardback</option>
+                           <option value="Paperback">Paperback</option> 
+                        </optiongroup>
+                        <optgroup value="Movie">
+                           <option value="Blue-ray">Blue-ray</option>
+                           <option value="DVD">DVD</option>
+                           <option value="Streaming">Streaming</option>
+                           <option value="VHS">VHS</optoin>
+                        </optiongroup>
+                        <optgroup value ="Music">
+                            <option value="Cassette">Cassette</option>
+                            <option value="CD">CD</optoin>
+                            <option value="MP3">MP3</option>
+                            <option value="Vinyl">Vinyl</option>
+                     </optiongroup>
                   </select>
                 </td>
              </tr>
