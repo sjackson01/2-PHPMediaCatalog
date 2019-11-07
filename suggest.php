@@ -43,7 +43,14 @@ if($_SERVER["REQUEST_METHOD"]== "POST"){
    $email_body = "";
    $email_body .= "Name " . $name . "\n"; 
    $email_body .= "Email " . $email . "\n";
+   //Add email header
+   $email_body .= "\n\n Suggest item \n\n";
+   $email_body .= "Category " . $category . "\n";
+   $email_body .= "Title " . $title . "\n";
+   $email_body .= "Genre " . $genre . "\n";
+   $email_body .= "Year " . $year . "\n";
    $email_body .= "Details " . $details . "\n";
+
 
    //Send email
    $mail = new PHPMailer;
