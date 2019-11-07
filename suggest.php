@@ -122,7 +122,7 @@ include("inc/header.php");
              </tr>
              <!--Create drop down menu--> 
              <tr> 
-                <th><label for="category">EMail</label></th>
+                <th><label for="category">Category</label></th>
                 <td>
                   <select id="category" name="category"/>
                      <option value="">Select One</option> 
@@ -133,7 +133,7 @@ include("inc/header.php");
                 </td>
              </tr>
              <tr> 
-                <th><label for="title">EMail</label></th>
+                <th><label for="title">Title</label></th>
                 <td><input type="title" id="title" name="title"/></td>
              </tr>
              <!-- Create format option list --> 
@@ -142,19 +142,19 @@ include("inc/header.php");
                 <td>
                   <select id="format" name="format"/>
                      <option value="">Select One</option> 
-                        <optgroup value="Book">
+                        <optgroup label="Book" value="Book">
                            <option value="Audio">Audio</option>
                            <option value="Ebook">Ebook</option>
                            <option value="Hardback">Hardback</option>
                            <option value="Paperback">Paperback</option> 
                         </optiongroup>
-                        <optgroup value="Movie">
+                        <optgroup label="Movie" value="Movie">
                            <option value="Blue-ray">Blue-ray</option>
                            <option value="DVD">DVD</option>
                            <option value="Streaming">Streaming</option>
                            <option value="VHS">VHS</optoin>
                         </optiongroup>
-                        <optgroup value ="Music">
+                        <optgroup label="Music" value ="Music">
                             <option value="Cassette">Cassette</option>
                             <option value="CD">CD</optoin>
                             <option value="MP3">MP3</option>
