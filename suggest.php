@@ -102,7 +102,7 @@ if($_SERVER["REQUEST_METHOD"]== "POST"){
          $error_message = "Mailer Error: ". $mail->ErrorInfo;//Display particular error message within property
       }
    }
-}
+}//-------------------------------->End form validation and SMTP call
 $pageTitle = "Suggest a Media Item";
 $section = "suggest";
 
