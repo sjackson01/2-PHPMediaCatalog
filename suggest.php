@@ -127,8 +127,6 @@ include("inc/header.php");
             let me know! Complete the form to send me an e-mail. </p>";
          }
          ?>
-        <p>If you think there is something I&rsquo;m missing, 
-           let me know! Complete the form to send me an e-mail. </p>
            <!--Add form-->
            <form method="post" action="suggest.php">
            <table>
