@@ -163,6 +163,7 @@ include("inc/header.php");
                   </select>
                 </td>
              </tr>
+            <!-- Create genre drop down --> 
              <tr>
                 <th>
                     <label for="genre">Genre</label>
