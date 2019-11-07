@@ -132,11 +132,12 @@ include("inc/header.php");
            <table>
              <tr> 
                 <th><label for="name">Name (required)</label></th>
-                <td><input type="text" id="name" name="name"/></td>
+                <!--PHP echo will only exist if the post variable $name is set -->
+                <td><input type="text" id="name" name="name" value="<?php if(isset($name)){echo $name;} ?>"/></td>
              </tr>
              <tr> 
-                <th><label for="email">EMail (required)</label></th>
-                <td><input type="text" id="email" name="email"/></td>
+                <th><label for="email">E-mail (required)</label></th>
+                <td><input type="text" id="email" name="email" value="<?php if(isset($email)){echo $email;} ?>"/></td>
              </tr>
              <!--Create drop down menu--> 
              <tr> 
@@ -152,7 +153,8 @@ include("inc/header.php");
              </tr>
              <tr> 
                 <th><label for="title">Title (required)</label></th>
-                <td><input type="title" id="title" name="title"/></td>
+                <!--PHP echo will only exist if the post variable $title is set -->
+                <td><input type="title" id="title" name="title" value="<?php if(isset($title)){echo $title;} ?>"/></td>
              </tr>
              <!-- Create format option list --> 
              <tr> 
@@ -259,7 +261,8 @@ include("inc/header.php");
             <!-- Create year text input --> 
             <tr> 
                 <th><label for="year">Year</label></th>
-                <td><input type="year" id="year" name="year"/></td>
+                <!--PHP echo will only exist if the post variable $year is set -->
+                <td><input type="year" id="year" name="year" value="<?php if(isset($year)){echo $year;} ?>"/></td>
              </tr>
              <tr> 
                 <th><label for="details">Additional Details</label></th>
