@@ -120,6 +120,33 @@ include("inc/header.php");
                 <th><label for="email">EMail</label></th>
                 <td><input type="text" id="email" name="email"/></td>
              </tr>
+             <!--Create drop down menu--> 
+             <tr> 
+                <th><label for="category">EMail</label></th>
+                <td>
+                  <select id="category" name="category"/>
+                     <option value="">Select One</option> 
+                     <option value="Books">Books</option>
+                     <option value="Movies">Movies</option>
+                     <option value ="Music">Music</option>
+                  </select>
+                </td>
+             </tr>
+             <tr> 
+                <th><label for="title">EMail</label></th>
+                <td><input type="title" id="title" name="title"/></td>
+             </tr>
+             <tr> 
+                <th><label for="format">EMail</label></th>
+                <td>
+                  <select id="format" name="format"/>
+                     <option value="">Select One</option> 
+                     <option value="Books">Books</option>
+                     <option value="Movies">Movies</option>
+                     <option value ="Music">Music</option>
+                  </select>
+                </td>
+             </tr>
              <tr> 
                 <th><label for="details">Suggest Item Details</label></th>
                 <td><textarea type="text" id="details" name="details"></textarea></td>
