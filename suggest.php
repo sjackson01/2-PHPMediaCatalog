@@ -238,6 +238,11 @@ include("inc/header.php");
                     </select>
                 </td>
             </tr>
+            <!-- Create year text input --> 
+            <tr> 
+                <th><label for="year">Year</label></th>
+                <td><input type="year" id="year" name="year"/></td>
+             </tr>
              <tr> 
                 <th><label for="details">Suggest Item Details</label></th>
                 <td><textarea type="text" id="details" name="details"></textarea></td>
