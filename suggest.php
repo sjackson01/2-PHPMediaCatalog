@@ -266,7 +266,8 @@ include("inc/header.php");
              </tr>
              <tr> 
                 <th><label for="details">Additional Details</label></th>
-                <td><textarea type="text" id="details" name="details"></textarea></td>
+                <!--PHP echo will only exist if the post variable $details is set--> 
+                <td><textarea type="text" id="details" name="details"><?php if(isset($details)){echo $details;} ?></textarea></td>
              </tr>
              <!--Honey Pot Field-->
              <!--Hide using CSS--> 
