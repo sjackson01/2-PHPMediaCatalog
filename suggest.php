@@ -142,19 +142,19 @@ include("inc/header.php");
                 <td>
                   <select id="format" name="format"/>
                      <option value="">Select One</option> 
-                        <optgroup label="Book" value="Book">
+                        <optgroup label="Book">
                            <option value="Audio">Audio</option>
                            <option value="Ebook">Ebook</option>
                            <option value="Hardback">Hardback</option>
                            <option value="Paperback">Paperback</option> 
                         </optiongroup>
-                        <optgroup label="Movie" value="Movie">
+                        <optgroup label="Movie">
                            <option value="Blue-ray">Blue-ray</option>
                            <option value="DVD">DVD</option>
                            <option value="Streaming">Streaming</option>
                            <option value="VHS">VHS</optoin>
                         </optiongroup>
-                        <optgroup label="Music" value ="Music">
+                        <optgroup label="Music">
                             <option value="Cassette">Cassette</option>
                             <option value="CD">CD</optoin>
                             <option value="MP3">MP3</option>
