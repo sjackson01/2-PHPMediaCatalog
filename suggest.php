@@ -113,16 +113,16 @@ include("inc/header.php");
            <form method="post" action="suggest.php">
            <table>
              <tr> 
-                <th><label for="name">Name</label></th>
+                <th><label for="name">Name (Required)</label></th>
                 <td><input type="text" id="name" name="name"/></td>
              </tr>
              <tr> 
-                <th><label for="email">EMail</label></th>
+                <th><label for="email">EMail (Required)</label></th>
                 <td><input type="text" id="email" name="email"/></td>
              </tr>
              <!--Create drop down menu--> 
              <tr> 
-                <th><label for="category">Category</label></th>
+                <th><label for="category">Category (Required)</label></th>
                 <td>
                   <select id="category" name="category"/>
                      <option value="">Select One</option> 
@@ -133,7 +133,7 @@ include("inc/header.php");
                 </td>
              </tr>
              <tr> 
-                <th><label for="title">Title</label></th>
+                <th><label for="title">Title (Required)</label></th>
                 <td><input type="title" id="title" name="title"/></td>
              </tr>
              <!-- Create format option list --> 
